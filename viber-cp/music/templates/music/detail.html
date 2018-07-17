@@ -1,0 +1,64 @@
+
+<!--
+    Here album and song are classes used to call
+    corrosponding columns bcoz class with lower case
+    is specific instance where as class with upper case
+    is a type.
+        -->
+
+<!-- album class used to fetch data from song class as song_set.all(remain same)-->
+{% extends 'music/base.html'  %}
+
+{% block title%}
+     Album Detail
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="albums-details">
+                <img id="logo" src="{{album.album_logo.url}}" width="150px" height="150px">
+                <h1>{{album.album_title}}</h1>
+                <h3>Artist: {{album.artist}}</h3>
+            </div>
+        </div>
+
+{%if error_message%}
+    <p><strong>{{Error_message}}</strong></p>
+{% endif %}
+
+ <div class="col-sm-6">
+     <table class="table table-striped">
+         <thead>
+            <tr>
+                <th> S. No.</th>
+                <th> Title</th>
+                <th> Play/Download</th>
+            </tr>
+         </thead>
+                {% for song in album.song_set.all %} <!--because songs are foreign key of albums-->
+                    <tbody>
+                            <tr>
+                                <td>{{forloop.counter}} </td>
+                                <td> {{song.song_title}}</td>
+                                <td><audio controls="audiocontrols">
+                                        <source src="{{song.song_file.url}}">
+                                    </audio>
+                                </td>
+                            </tr>
+                        </tbody>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+

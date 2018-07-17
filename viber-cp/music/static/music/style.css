@@ -1,0 +1,43 @@
+body{
+    background-image: url("images/paper.jpg")
+
+}
+
+.logo-image{
+margin-top:10px;
+margin-left:5px;
+}
+
+
+.navbar{
+   border-radius: 0;
+}
+.navbar-brand{
+    font-family: 'Satisfy',cursive;
+}
+
+.buttons{
+margin-bottom:10px;
+}
+
+.albums-details{
+background-color: white;
+text-align:center;
+padding:10px;
+width:280px;
+}
+
+
+
+#logo{
+width:200px;
+height:200px;
+position:middle;
+}
+
+#forms{
+
+font-family:cursive;
+font-color:gray;
+font-size:40px;
+}
